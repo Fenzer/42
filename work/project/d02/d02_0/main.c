@@ -6,7 +6,7 @@
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/03 16:07:23 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/06 20:07:39 by fpinson          ###   ########.fr       */
+/*   Updated: 2017/08/07 16:40:19 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_putchar(char c)
 void	ft_print_alphabet(void)
 {
 	int i;
-
+		
 	i = 97;
 	while (i <= 122)
 	{
@@ -82,7 +82,7 @@ void	ft_is_negative(int n)
 void	ft_print_comb(void)
 {
 	int		 nbr[3];
-
+	
 	nbr[0] = 48;
 	nbr[1] = 48;
 	nbr[2] = 48;
@@ -154,19 +154,19 @@ void	ft_print_comb2(void)
 
 void	ft_putnbr(int n)
 {
-	int	a;
-	int	i;
-	int	t[10];
+	int 	a;
+	int		i;
+	int		t[10];
 
 	a = 0;
 	i = 0;
 	if (n < 0)
 	{
-		n = -n;
+		n = - n;
 		ft_putchar('-');
 	}
 	if (n < 10)
-		ft_putchar(n + 48);
+		ft_putchar(n +48);
 	else
 	{
 		while (n % 10 != 0)
