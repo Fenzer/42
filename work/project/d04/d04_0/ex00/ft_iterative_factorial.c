@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 22:40:32 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/07 22:41:19 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/15 16:17:43 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/15 20:51:33 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-char	*ft_strrev(char *str);
+int		ft_iterative_factorial(int nb)
+{
+	int		r;
+	int		tp;
 
-void	ft_swap(int *a, int *b);
-
-int		ft_strlen(char *str);
-
-void	ft_putstr(char *str);
-
-void	ft_ultimate_div_mod(int *a, int *b);
-
-void	ft_putnbr(int n);
-
-void	ft_putchar(char c);
-
-void	ft_ft(int *nbr);
-
-void	ft_ultimate_ft(int *********nbr);
+	r = 1;
+	if (nb < 0 || nb >= 13)
+		return (0);
+	if (nb == 1)
+		return (1);
+	while (nb >= 0)
+	{
+		if (nb == 0)
+			tp = 1;
+		else
+			tp = nb;
+		r *= tp;
+		nb--;
+	}
+	return (r);
+}

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 22:40:32 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/07 22:41:19 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/15 16:51:47 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/15 20:49:58 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-char	*ft_strrev(char *str);
+int		ft_recursive_power(int nb, int power)
+{
+	int		res;
 
-void	ft_swap(int *a, int *b);
-
-int		ft_strlen(char *str);
-
-void	ft_putstr(char *str);
-
-void	ft_ultimate_div_mod(int *a, int *b);
-
-void	ft_putnbr(int n);
-
-void	ft_putchar(char c);
-
-void	ft_ft(int *nbr);
-
-void	ft_ultimate_ft(int *********nbr);
+	if (power < 0)
+		return (0);
+	if (power == 1)
+		return (nb);
+	if (power == 0)
+		return (1);
+	while (power > 1)
+	{
+		return (nb * ft_recursive_power(nb, (power - 1)));
+	}
+	return (res);
+}

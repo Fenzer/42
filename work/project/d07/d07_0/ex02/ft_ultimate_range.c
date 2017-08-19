@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 22:40:32 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/07 22:41:19 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/17 22:46:46 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/18 15:22:33 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-char	*ft_strrev(char *str);
+#include <stdlib.h>
 
-void	ft_swap(int *a, int *b);
+int		ft_ultimate_range(int **range, int min, int max)
+{
+	int		i;
+	int		rng;
 
-int		ft_strlen(char *str);
-
-void	ft_putstr(char *str);
-
-void	ft_ultimate_div_mod(int *a, int *b);
-
-void	ft_putnbr(int n);
-
-void	ft_putchar(char c);
-
-void	ft_ft(int *nbr);
-
-void	ft_ultimate_ft(int *********nbr);
+	rng = max - min;
+	if (rng > 0)
+	{
+		*range = (int *)malloc(sizeof(int) * rng);
+	}
+	else if (*range == NULL || rng <= 0 || range == NULL)
+		return (0);
+	i=0;
+	while (i < rng)
+	{
+		*(*range + i) = min + i;
+		i++;
+	}
+	return (i);
+}

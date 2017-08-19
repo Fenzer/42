@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 22:40:32 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/07 22:41:19 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/15 20:44:16 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/15 20:46:50 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-char	*ft_strrev(char *str);
+int		ft_find_next_prime(int nb)
+{
+	int i;
 
-void	ft_swap(int *a, int *b);
-
-int		ft_strlen(char *str);
-
-void	ft_putstr(char *str);
-
-void	ft_ultimate_div_mod(int *a, int *b);
-
-void	ft_putnbr(int n);
-
-void	ft_putchar(char c);
-
-void	ft_ft(int *nbr);
-
-void	ft_ultimate_ft(int *********nbr);
+	i = 0;
+	if (nb == 0 || nb == 1)
+		return (3);
+	while (i < (nb / 2))
+	{
+		i++;
+		if (nb % i == 0 && (nb / 2) > i && i != 1)
+			return (ft_find_next_prime(nb + 1));
+	}
+	return (nb);
+}

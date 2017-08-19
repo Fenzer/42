@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_fibonnaci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 22:40:32 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/07 22:41:19 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/15 16:55:39 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/15 16:56:47 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-char	*ft_strrev(char *str);
+int		ft_fibonacci(int index)
+{
+	int		res;
 
-void	ft_swap(int *a, int *b);
-
-int		ft_strlen(char *str);
-
-void	ft_putstr(char *str);
-
-void	ft_ultimate_div_mod(int *a, int *b);
-
-void	ft_putnbr(int n);
-
-void	ft_putchar(char c);
-
-void	ft_ft(int *nbr);
-
-void	ft_ultimate_ft(int *********nbr);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		res = 0;
+	if (index == 1)
+		res = 1;
+	while (index > 1)
+	{
+		return (res = ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	}
+	return (res);
+}

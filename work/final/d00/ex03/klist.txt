@@ -1,8 +1,0 @@
-Credentials cache: API:8F4D5E97-069C-4567-BDC3-AED63E23F995
-        Principal: fpinson@42.FR
-
-  Issued                Expires               Principal
-Jul 31 10:58:03 2017  Aug  7 10:58:03 2017  krbtgt/42.FR@42.FR
-Jul 31 10:58:05 2017  Aug  7 10:58:03 2017  ldap/ldap-proxy.42.fr@42.FR
-Jul 31 10:58:05 2017  Aug  7 10:58:03 2017  HTTP/student-storage-1.42.fr@42.FR
-Jul 31 12:07:35 2017  Aug  7 10:58:03 2017  host/vgs-fn1.42.fr@42.FR

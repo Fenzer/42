@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 22:40:32 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/07 22:41:19 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/17 11:51:56 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/18 13:53:55 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-char	*ft_strrev(char *str);
-
-void	ft_swap(int *a, int *b);
-
-int		ft_strlen(char *str);
-
-void	ft_putstr(char *str);
-
-void	ft_ultimate_div_mod(int *a, int *b);
-
-void	ft_putnbr(int n);
 
 void	ft_putchar(char c);
 
-void	ft_ft(int *nbr);
+void	ft_putstr(char *str)
+{
+	while (*str != 0)
+	{
+		ft_putchar(*str);
+		str++;
+	}
+}
 
-void	ft_ultimate_ft(int *********nbr);
+int		main(int argc, char **argv)
+{
+	int		i;
+
+	i = 1;
+	if (argc >= 0)
+	{
+		while (i < argc)
+		{
+			ft_putstr(argv[i]);
+			ft_putchar('\n');
+			i++;
+		}
+	}
+	return (0);
+}
