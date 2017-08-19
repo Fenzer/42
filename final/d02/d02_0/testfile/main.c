@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 16:12:19 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/08 16:13:04 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/08 13:29:28 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/08 14:07:49 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
-{
-	int		tp;
+#include"./main.h"
 
-	tp = *a;
-	*a = *b;
-	*b = tp;
+int		main(void)
+{
+	char	c;
+
+	c = ' ';
+	ft_print_alphabet();
+	ft_putchar(c);
+	ft_print_reverse_alphabet();
+	ft_putchar(c);
+	ft_is_negative(-52);
+	ft_putchar(c);
+	ft_print_numbers();
+	ft_putchar(c);
+	ft_print_comb();
+	ft_putchar(c);
+	ft_print_comb2();
 }

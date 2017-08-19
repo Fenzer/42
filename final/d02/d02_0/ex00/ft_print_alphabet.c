@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 15:59:11 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/08 16:22:30 by fpinson          ###   ########.fr       */
+/*   Created: 2017/08/03 13:52:53 by fpinson           #+#    #+#             */
+/*   Updated: 2017/08/06 20:47:57 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ft(int *nbr)
-{
-	int		a;
+#include <unistd.h>
 
-	a = 42;
-	*nbr = a;
+void	ft_putchar(void);
+
+void	ft_print_alphabet(void)
+{
+	int a;
+	a=97;
+	while(a <= 122)
+		ft_putchar(a);
+		a++;
 }
