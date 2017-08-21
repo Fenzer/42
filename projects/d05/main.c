@@ -6,7 +6,7 @@
 /*   By: fpinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:22:47 by fpinson           #+#    #+#             */
-/*   Updated: 2017/08/20 13:31:32 by fpinson          ###   ########.fr       */
+/*   Updated: 2017/08/20 15:57:35 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -42,8 +42,6 @@ void	ft_putnbr(int nb)
 		n = -nb;
 		ft_putchar('-');
 	}
-	if (n < 10)
-		ft_putchar(n + '0');
 	while (n > 10)
 	{
 		dig = n / div;
@@ -55,6 +53,8 @@ void	ft_putnbr(int nb)
 		}
 		div *= 10;
 	}
+	if (n < 10)
+		ft_putchar(n + '0');
 }
 
 /*
@@ -63,8 +63,8 @@ void	ft_putnbr(int nb)
 
 void	ft_putstr(char *str)
 {
-	while(*str++ != '\0')
-		ft_putchar(*str);
+	while(*str != '\0')
+		ft_putchar(*str++);
 }
 /*
  ** D 05 : Ex 02 : "ft_atoi" (|| D 03 : Ex 08)
