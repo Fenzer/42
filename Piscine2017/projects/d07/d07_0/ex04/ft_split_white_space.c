@@ -13,29 +13,57 @@
 \*_***************************************************************_*/
 
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 
 /*_***************************************************************_*/
 
+void    ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+/*_***************************************************************_*/
+
+void    ft_putstr(char *str)
+{
+    while (*str)
+        ft_putchar(*str++);
+}
+
+/*_***************************************************************_*/
+
+void    ft_print_words_tables(char **tab)
+{
+    int     i;
+
+    i = 0;
+    while (tab[i])
+    {
+        ft_putstr(tab[i]);
+        ft_putchar('\n');
+        i++;
+    }
+}
+
+/*_***************************************************************_*/
 int		ft_wdlen(char *str)
 {
 	int		n;
-	char	*s;
 
 	n = 0;
-	s = str;
-	while (*s == ' ' || *s == '\t' 
-            || *s == '\n' || *s == '\r')
-		s++;
-	while (!(*s == ' ' || *s == '\t' 
-            || *s == '\n' || *s == '\r' ) 
-            && *s != 0)
+	while (*str == ' ' || *str == '\v' || *str == '\f' 
+            ||*str == '\t' || *str == '\n' || *str == '\r')
+		str++;
+	while (!(*str == ' ' || *str == '\v' || *str == '\f' 
+            ||*str == '\t' || *str == '\n' || *str == '\r') 
+            && *str != 0)
 	{
 		n++;
-		s++;
-		if (*s == ' ' || *s == '\t' 
-            || *s == '\n' || *s == '\r' 
-            || *s == 0)
+		str++;
+		if (*str == ' ' || *str == '\v' || *str == '\f' 
+            ||*str == '\t' || *str == '\n' || *str == '\r'
+            || *str == 0)
 			break;
 	}
 	return (n);
@@ -65,29 +93,26 @@ char	*ft_strdup(char *src)
 
 int		ft_wdnbr(char *str)
 {
-	char	*s;
 	int		n;
 
-	s = str;
 	n = 0;
-	while (*s++	 != 0)
+	while (*str++	 != 0)
 	{
-		if (!(*s == ' ' || *s == '\t' 
-            || *s == '\n' || *s == '\r'))
+		if (!(*str == ' ' || *str == '\v' || *str == '\f' 
+            ||*str == '\t' || *str == '\n' || *str == '\r'))
 		{
-			while (!(*s == ' ' || *s == '\t' 
-                    || *s == '\n' || *s == '\r' 
-                    || *s == 0))
+			while (!(*str == ' ' || *str == '\v' || *str == '\f' 
+                ||*str == '\t' || *str == '\n' || *str == '\r'
+                || *str == 0))
 			{
-				s++;
-				if (*s == ' ' || *s == '\t' 
-                    || *s == '\n' || *s == '\r'
-					|| *s == 0)
-					n++;
+				str++;
+				if (*str == ' ' || *str == '\v' || *str == '\f' 
+                ||*str == '\t' || *str == '\n' || *str == '\r')
+                n++;
 			}
 		}
-		else if (*s != 0)
-			s++;
+		else if (*str != 0)
+			str++;
 	}
 	return n;
 }
@@ -97,9 +122,10 @@ int		ft_wdnbr(char *str)
 
 char	**ft_split_whitespaces(char *str)
 {
-	int		tb_len,i = 0;
+	int		tb_len,i;
 	char	**wdptr;
 
+    i = 0;
 	tb_len = ft_wdnbr(str) + 1;
 	wdptr = (char **)malloc(sizeof(char) * tb_len);
     if (wdptr == NULL)
@@ -108,8 +134,8 @@ char	**ft_split_whitespaces(char *str)
 	    wdptr[tb_len] = 0;
 	while (i < tb_len)
 	{
-		while ((*str == ' ' || *str == '\t' 
-                || *str == '\n' || *str == '\r') 
+		while ((*str == ' ' || *str == '\v' || *str == '\f' 
+                ||*str == '\t' || *str == '\n' || *str == '\r') 
                 && *str != 0)
             str++;
         wdptr[i] = ft_strdup(str);
@@ -126,20 +152,19 @@ char	**ft_split_whitespaces(char *str)
 int   main(int ac, char **av)
 {
 	char	**spltd_wd;
-    int     i = 0;
-	
+    //int     i = 0;
+    
     if (ac  == 2)
 	{
-        printf("\nNbr of Wd :%d\n 1st wd len : %d\n ptr : %s\n", ft_wdnbr(av[1]), 
-                ft_wdlen(av[1]), av[1]);
 		spltd_wd = ft_split_whitespaces(av[1]);
 		if (spltd_wd == 0)
             return (0);
-        while (*spltd_wd[i])
+        ft_print_words_tables(spltd_wd);
+        /*while(spltd_wd[i])
         {
-            printf("\n%s\n",spltd_wd[i]);
+            printf("%s\n",spltd_wd[i]);
             i++;
-        }   
+        }*/
         free(spltd_wd);
 	}
 	return (0);
