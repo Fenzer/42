@@ -24,7 +24,7 @@ void	ft_putnbr(int nb)
 
     d = 1;
     if (nb < 0)
-        n = -nb;
+        n = -nb;;
     else
         n = nb;
     while ((n / d) > 10)
