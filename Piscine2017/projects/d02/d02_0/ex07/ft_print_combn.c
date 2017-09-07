@@ -40,18 +40,12 @@ void    ft_putc(char c)
 
 void    ft_print_combn(int n)
 {
-    char    t[n + 1];
     int     i;
 
     i = 0;
-    while(i < n)
-    {
-        t[i] = i + '0';
-        i++;
-    }
-    t[n] = '\0';
     
-    ft_puts(t);
+    {
+    }
 }
 
 /*_***************************************************************_*/
