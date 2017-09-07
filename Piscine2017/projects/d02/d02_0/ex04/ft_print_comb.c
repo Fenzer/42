@@ -9,33 +9,37 @@
 /*   Updated: 2017/08/04 13:57:58 by fpinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-void	ft_putchar(char c);
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void	ft_comb_printr(char a, char b, char c);
 
 void	ft_print_comb(void)
 {
-	int nbr[3];
+    char  a,b,c;
 
-	nbr[0] = 48;
-	nbr[1] = 48;
-	nbr[2] = 48;
-	while (nbr[0] <= 55)
-	{
-		nbr[1] = nbr[0] + 1;
-		while (nbr[1] <= 56)
-		{
-			nbr[2] = nbr[1] + 1;
-			while (nbr[2] <= 57)
-			{
-				if (nbr[0] < nbr[1] && nbr[1] < nbr[2])
-				{
-					ft_comb_printr(nbr[0], nbr[1], nbr[2]);
-				}
-				nbr[2]++;
-			}
-			nbr[1]++;
-		}
-		nbr[0]++;
-	}
+    a = b = c = '0';
+    while (a <= '7')
+    {
+        b = a + 1;
+        while (b <= '8')
+        {
+            c = b + 1;
+            while(c <= '9')
+            {
+                if(a < b && b < c)
+                    ft_comb_printr(a,b,c);
+                c++;
+            }
+            b++;
+        }
+        a++;
+    }
 }
 
 void	ft_comb_printr(char a, char b, char c)

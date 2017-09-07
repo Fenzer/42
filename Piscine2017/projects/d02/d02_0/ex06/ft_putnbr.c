@@ -10,24 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
 
 void	ft_putnbr(int nb)
 {
-	int i;
-	int tp;
-	
-	i = 1000000000;
-	while (i >= 10)
-	{
-		tp = nb / i;
-		if (tp != 0)
-		{
-			ft_putchar(tp + '0');
-			nb = nb - (tp * i);
-			return ft_putnbr(nb);
-		}
-		i = i / 10;
-	}
-	ft_putchar(nb + '0');
+    int             d;
+    unsigned int    n;
+
+    d = 1;
+    if (nb < 0)
+        n = -nb;
+    else
+        n = nb;
+    while ((n / d) > 10)
+        d *= 10;
+    while (n)
+    {
+        ft_putchar((n / d) + '0');
+        n %= d;
+        d /= 10;
+    }
 }
