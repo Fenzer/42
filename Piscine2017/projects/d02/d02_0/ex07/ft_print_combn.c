@@ -20,6 +20,7 @@ void    ft_putc(char c);
 void    ft_puts(char *s);
 void    ft_print_combn(int n);
 int     ft_atoi(char *a);
+void	ft_putnbr(int nb)
 
 /*_***************************************************************_*/
 
@@ -40,11 +41,16 @@ void    ft_putc(char c)
 
 void    ft_print_combn(int n)
 {
-    int     i;
+    int     i,n_max;
 
     i = 0;
-    
+    n_max = n;
+    while (i++ <= n_max )
+        n_max *= 10;
+    i = 0;
+    while (i / n_max) 
     {
+        i++;
     }
 }
 
@@ -72,4 +78,26 @@ int     ft_atoi(char *a)
         r += *a++ - '0';
     }
     return (s * r);
+}
+
+/*_***************************************************************_*/
+
+void	ft_putnbr(int nb)
+{
+    int             d;
+    unsigned int    n;
+
+    d = 1;
+    if (nb < 0)
+        n = -nb;;
+    else
+        n = nb;
+    while ((n / d) > 10)
+        d *= 10;
+    while (n)
+    {
+        ft_putchar((n / d) + '0');
+        n %= d;
+        d /= 10;
+    }
 }
