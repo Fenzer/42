@@ -41,16 +41,23 @@ void    ft_putc(char c)
 
 void    ft_print_combn(int n)
 {
-    int     i,n_max;
+    int     t[n], i, col;
 
     i = 0;
-    n_max = n;
-    while (i++ <= n_max )
-        n_max *= 10;
-    i = 0;
-    while (i / n_max) 
+    col = n - 1;
+    if (n > 0 || n < 10)
+        return;
+    else if ( n == 0 || n == 1)
+        ft_putnbr(0);
+    else 
     {
-        i++;
+        while (i < n)
+        {
+            t[i] = i;
+            i++;
+        }
+        while (t[col] <= 10)
+
     }
 }
 
