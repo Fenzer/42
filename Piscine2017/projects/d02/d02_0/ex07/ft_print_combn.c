@@ -67,7 +67,7 @@ void    ft_print_combn(int n)
         ft_putc('\n');
         while(col >= 0)
         {
-            if (t[col] <= '  + '0')  
+            if (t[col] <= (10 - (10 - col))  + '0')  
                 t[col]++;
             else
                 col--;
