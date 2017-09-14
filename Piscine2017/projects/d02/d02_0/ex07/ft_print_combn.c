@@ -42,11 +42,10 @@ void    ft_putc(char c)
 
 void    ft_print_combn(int n)
 {
-    int     i, col;
+    int     i;
     char    t[n];
 
     i = 0;
-    col = n - 1;
     if (n < 0 || n >= 10)
         return;
     else if (n == 0)
@@ -62,15 +61,23 @@ void    ft_print_combn(int n)
             t[i] = i + '0';
             i++;
         }
+        i--;
         t[n] = 0;
         ft_puts(t);
         ft_putc('\n');
-        while(col >= 0)
+        while(i >= 0)
         {
-            if (t[col] <= (10 - (10 - col))  + '0')  
-                t[col]++;
-            else
-                col--;
+            if (t[i] < (10 - (n - i))  + '0')  
+            {
+                t[i]++;
+                if (t[i] == (10 - (n - i))  + '0')
+                {
+                    t[i - 1]++;
+                    t[i] = i;
+                }
+            }
+           else
+            i--;
             ft_puts(t);
             ft_putc('\n');
         }
