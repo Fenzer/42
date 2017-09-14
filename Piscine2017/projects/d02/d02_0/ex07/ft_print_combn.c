@@ -57,21 +57,22 @@ void    ft_print_combn(int n)
     }
     else
     {
-        while (i <= col)
+        while (i < n)
         {
             t[i] = i + '0';
             i++;
         }
-        while(t[0] != 10 - n)
+        t[n] = 0;
+        ft_puts(t);
+        ft_putc('\n');
+        while(col >= 0)
         {
-            while (t[col] <= 9)
-            {
+            if (t[col] <= '  + '0')  
                 t[col]++;
-                if (t[col] == 9 && col > 1)
-                    col--;
-                ft_puts(t);
-                ft_putc('\n');
-            }
+            else
+                col--;
+            ft_puts(t);
+            ft_putc('\n');
         }
     }
 }
