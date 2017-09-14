@@ -63,43 +63,47 @@ void    ft_print_combn(int n)
         }
         i--;
         t[n] = 0;
+        while(*t < (10 - n) + '0')
+        {
         ft_puts(t);
         ft_putc(',');
         ft_putc(' ');
-        while(*t < (10 - n) + '0')
-        {
-            if (t[i] < 10 - (n - i) + '0')
-            {   
+            while (t[i] < 10 - (n - i) + '0')
+            {  
                 t[i]++;
-                if (t[i] == 10 - (n - i) + '0' && t[i - 1] <= 9 - (n - i) + '0')
+                ft_puts(t);
+                ft_putc(',');
+                ft_putc(' ');
+                if (t[i] == 10 - (n - i) + 0) 
                 {
-                    t[i - 1]++;
-                    t[i] = t[i - 1] + 1;
+                    if (i > 0)
+                    {
+                        t[i - 1]++;
+                        t[i] = t[i - 1];
+                    }
+                    else
+                        break;
                 }
-            }       
-            else if (i > 0)
-                i--;
-            ft_puts(t);
-            ft_putc(',');
-            ft_putc(' ');
+            }
+            i--;
         }
         ft_putc('\n');
         /*while(i)
-        {
-            if (t[i] < (10 - (n - i))  + '0')  
-            {
-                t[i]++;
-                if (t[i] == (10 - (n - i))  + '0')
-                {
-                    t[i - 1]++;
-                    t[i] = i;
-                }
-            }
-           else
-                i--;
-            ft_puts(t);
-            ft_putc('\n');
-        }*/
+          {
+          if (t[i] < (10 - (n - i))  + '0')  
+          {
+          t[i]++;
+          if (t[i] == (10 - (n - i))  + '0')
+          {
+          t[i - 1]++;
+          t[i] = i;
+          }
+          }
+          else
+          i--;
+          ft_puts(t);
+          ft_putc('\n');
+          }*/
     }
 }
 
