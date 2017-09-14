@@ -20,7 +20,8 @@ void    ft_putc(char c);
 void    ft_puts(char *s);
 void    ft_print_combn(int n);
 int     ft_atoi(char *a);
-void	ft_putnbr(int nb)
+void	ft_putnbr(int nb);
+void    ft_printr(int *t);
 
 /*_***************************************************************_*/
 
@@ -39,6 +40,14 @@ void    ft_putc(char c)
 
 /*_***************************************************************_*/
 
+void ft_printr(int *t)
+{
+    while (*t)
+        ft_putc(*(t++) + '0');
+}
+
+/*_***************************************************************_*/
+
 void    ft_print_combn(int n)
 {
     int     t[n], i, col;
@@ -47,18 +56,18 @@ void    ft_print_combn(int n)
     col = n - 1;
     if (n > 0 || n < 10)
         return;
-    else if ( n == 0 || n == 1)
-        ft_putnbr(0);
-    else 
+    else if (n == 0)
     {
-        while (i < n)
-        {
-            t[i] = i;
-            i++;
-        }
-        while (t[col] <= 10)
-
+        ft_putnbr(0);
+        ft_putc('.');
+        ft_putc('\n');
     }
+    while (t[i])
+    {
+        t[i] = i;
+        i++;
+    }
+    ft_printr(t);
 }
 
 /*_***************************************************************_*/
@@ -96,14 +105,14 @@ void	ft_putnbr(int nb)
 
     d = 1;
     if (nb < 0)
-        n = -nb;;
+        n = -nb;
     else
         n = nb;
     while ((n / d) > 10)
         d *= 10;
     while (n)
     {
-        ft_putchar((n / d) + '0');
+        ft_putc((n / d) + '0');
         n %= d;
         d /= 10;
     }
