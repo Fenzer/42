@@ -17,6 +17,6 @@ int     main(int ac, char **av)
     if (ac == 2)
         ft_print_combn(ft_atoi(*(++av)));
     else
-        ft_puts("Enter a number please \n");
+        ft_puts("Enter a number please!\n");
     return (0);
 }

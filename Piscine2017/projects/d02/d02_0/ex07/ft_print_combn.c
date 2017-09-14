@@ -13,6 +13,7 @@
 **_***************************************************************_*/
 
 #include <unistd.h>
+#include <stdio.h>
 
 /*_***************************************************************_*/
 
@@ -21,13 +22,12 @@ void    ft_puts(char *s);
 void    ft_print_combn(int n);
 int     ft_atoi(char *a);
 void	ft_putnbr(int nb);
-void    ft_printr(int *t);
 
 /*_***************************************************************_*/
 
 void    ft_puts(char *s)
 {
-    while (*s)
+    while (*s != 0)
         ft_putc(*s++);
 }
 
@@ -40,21 +40,14 @@ void    ft_putc(char c)
 
 /*_***************************************************************_*/
 
-void ft_printr(int *t)
-{
-    while (*t)
-        ft_putc(*(t++) + '0');
-}
-
-/*_***************************************************************_*/
-
 void    ft_print_combn(int n)
 {
-    int     t[n], i, col;
+    int     i, col;
+    char    t[n];
 
     i = 0;
     col = n - 1;
-    if (n > 0 || n < 10)
+    if (n < 0 || n >= 10)
         return;
     else if (n == 0)
     {
@@ -62,12 +55,25 @@ void    ft_print_combn(int n)
         ft_putc('.');
         ft_putc('\n');
     }
-    while (t[i])
+    else
     {
-        t[i] = i;
-        i++;
+        while (i <= col)
+        {
+            t[i] = i + '0';
+            i++;
+        }
+        while(t[0] != 10 - n)
+        {
+            while (t[col] <= 9)
+            {
+                t[col]++;
+                if (t[col] == 9 && col > 1)
+                    col--;
+                ft_puts(t);
+                ft_putc('\n');
+            }
+        }
     }
-    ft_printr(t);
 }
 
 /*_***************************************************************_*/
