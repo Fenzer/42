@@ -40,70 +40,46 @@ void    ft_putc(char c)
 
 /*_***************************************************************_*/
 
+void    ft_tab_printr(int *t, int n)
+{
+    int     i;
+
+    i = 0;
+    while(i < n)
+    {
+        ft_putc(t[i] + '0');
+        i++;
+    }
+    ft_putc(',');
+    ft_putc(' ');
+}
+
+/*_***************************************************************_*/
+
 void    ft_print_combn(int n)
 {
     int     i;
-    char    t[n];
+    int     t[n],tp[n];
 
     i = 0;
-    if (n < 0 || n >= 10)
+    if ( n <= 0 || n >= 10)
         return;
-    else if (n == 0)
+    while (i < n)
     {
-        ft_putnbr(0);
-        ft_putc('.');
-        ft_putc('\n');
+        t[i] = tp[i] = i;
+        i++;
     }
-    else
+    i = 0;
+    ft_tab_printr(t,n);
+    ft_putc('\n');
+    ft_tab_printr(tp,n);
+    ft_putc('\n');
+    ft_putnbr(i);
+    ft_putc('\n');
+    while (*t <= 10 - n)
     {
-        while (i < n)
-        {
-            t[i] = i + '0';
-            i++;
-        }
-        i--;
-        t[n] = 0;
-        while(*t < (10 - n) + '0')
-        {
-        ft_puts(t);
-        ft_putc(',');
-        ft_putc(' ');
-            while (t[i] < 10 - (n - i) + '0')
-            {  
-                t[i]++;
-                ft_puts(t);
-                ft_putc(',');
-                ft_putc(' ');
-                if (t[i] == 10 - (n - i) + 0) 
-                {
-                    if (i > 0)
-                    {
-                        t[i - 1]++;
-                        t[i] = t[i - 1];
-                    }
-                    else
-                        break;
-                }
-            }
-            i--;
-        }
-        ft_putc('\n');
-        /*while(i)
-          {
-          if (t[i] < (10 - (n - i))  + '0')  
-          {
-          t[i]++;
-          if (t[i] == (10 - (n - i))  + '0')
-          {
-          t[i - 1]++;
-          t[i] = i;
-          }
-          }
-          else
-          i--;
-          ft_puts(t);
-          ft_putc('\n');
-          }*/
+        while (i)
+        if (t[i] < n)
     }
 }
 
@@ -145,11 +121,13 @@ void	ft_putnbr(int nb)
         n = -nb;
     else
         n = nb;
-    while ((n / d) > 10)
+    while ((n / d) >= 10)
         d *= 10;
-    while (n)
+    while (d >= 1)
     {
         ft_putc((n / d) + '0');
+        if (d == 1 && n == 0)
+            break;
         n %= d;
         d /= 10;
     }
